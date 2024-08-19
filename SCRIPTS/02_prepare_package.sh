@@ -100,6 +100,7 @@ cp -rf ../Lienol/package/network/utils/fullconenat ./package/new/fullconenat
 rm -rf ./target/linux/rockchip
 cp -rf ../immortalwrt_23/target/linux/rockchip ./target/linux/rockchip
 cp -rf ../PATCH/rockchip-5.15/* ./target/linux/rockchip/patches-5.15/
+rm -f ./target/linux/rockchip/patches-5.15/991-arm64-dts-rockchip-add-more-cpu-operating-points-for.patch
 rm -rf ./package/boot/uboot-rockchip
 cp -rf ../immortalwrt_23/package/boot/uboot-rockchip ./package/boot/uboot-rockchip
 rm -rf ./package/boot/arm-trusted-firmware-rockchip
