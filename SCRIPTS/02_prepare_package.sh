@@ -232,6 +232,7 @@ CONFIG_CPU_IDLE_GOV_TEO=y
 # 查找所有与内核 6.6 相关的配置文件并将这些配置项追加到文件末尾
 find ./target/linux/ -name "config-${KERNEL_VERSION}" | xargs -I{} sh -c "echo '$CONFIG_CONTENT' | tee -a {} > /dev/null"
 
+sed -i 's/192.168.1.1/192.168.2.1/' package/base-files/files/bin/config_generate
 ### 最后的收尾工作 ###
 # Lets Fuck
 mkdir -p package/base-files/files/usr/bin
