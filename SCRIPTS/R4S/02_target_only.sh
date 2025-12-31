@@ -5,6 +5,10 @@ clear
 sed -i 's,-mcpu=generic,-march=armv8-a+crc+crypto,g' include/target.mk
 sed -i 's,kmod-r8168,kmod-r8169,g' target/linux/rockchip/image/armv8.mk
 
+# 交换 LAN/WAN 口
+sed -i 's,"eth1" "eth0","eth0" "eth1",g' target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+sed -i "s,'eth1' 'eth0','eth0' 'eth1',g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+
 #Vermagic
 latest_version="$(curl -s https://github.com/openwrt/openwrt/tags | grep -Eo "v[0-9\.]+\-*r*c*[0-9]*.tar.gz" | sed -n '/[2-9]4/p' | sed -n 1p | sed 's/v//g' | sed 's/.tar.gz//g')"
 wget https://downloads.openwrt.org/releases/${latest_version}/targets/rockchip/armv8/profiles.json
